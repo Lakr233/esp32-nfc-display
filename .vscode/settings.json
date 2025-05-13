@@ -1,0 +1,37 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.port": "/dev/tty.usbserial-10",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32"
+  },
+  "idf.openOcdConfigs": [
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32.cfg"
+  ],
+  "idf.flashType": "UART",
+  "files.associations": {
+    "esp_lcd_panel_ssd1306.h": "c",
+    "esp_lcd_panel_io.h": "c",
+    "i2c.h": "c",
+    "esp_lcd_panel_ops.h": "c",
+    "esp_lcd_panel_vendor.h": "c",
+    "string.h": "c",
+    "esp_log.h": "c",
+    "font8x8.h": "c",
+    "format": "c",
+    "complex": "c",
+    "rc522.h": "c",
+    "rc522_mifare.h": "c",
+    "rc522_spi.h": "c",
+    "charconv": "c",
+    "chrono": "c",
+    "optional": "c",
+    "ratio": "c",
+    "system_error": "c",
+    "array": "c",
+    "functional": "c",
+    "tuple": "c",
+    "type_traits": "c",
+    "utility": "c"
+  },
+}
