@@ -1,32 +1,49 @@
-# _Sample project_
+# ESP32 NFC Display Project
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+This project uses an ESP32 to implement an NFC card reader and display the information on an OLED screen.
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+![preview](./res/GqxLlk1bAAAnZZm.jpeg)
 
+## Features
 
+*   Reads NFC card information using an RC522 module.
+*   Displays card type, UID, and SAK information on an SSD1306 OLED screen.
+*   Supports MIFARE Classic compatible cards.
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+## Tech Specs
 
-## Example folder contents
+**OLED Display (SSD1306)**
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+Connected via I2C:
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+*   SDA: GPIO 13
+*   SCL: GPIO 14
 
-Below is short explanation of remaining files in the project folder.
+**NFC Reader (RC522)**
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+Connected via SPI:
+
+*   MISO: GPIO 19
+*   MOSI: GPIO 23
+*   SCLK: GPIO 18
+*   SDA (CS/SS): GPIO 5
+*   RST: Software Reset (No physical pin connected)
+*   IRQ: Not used
+
+**Font**
+
+The `font8x8` font library used in this project is from [dhepper/font8x8](https://github.com/dhepper/font8x8).
+
+**Dependencies**
+
+*   ESP-IDF
+*   ESP LCD component used in [main/display.c](main/display.c)
+*   RC522 component used in [main/nfc.c](main/nfc.c)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Copyright (c) 2025 Lakr Aream. All rights reserved.
